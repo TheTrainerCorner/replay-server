@@ -9,7 +9,7 @@ export class AppController {
 	private readonly replaysService: ReplaysService,
 ) {}
 
-  @Get("/")
+  @Get()
   @Render("index")
   async root() {
 	const main = await this.replaysService.getShowdownServerFromPathName("ttc");
