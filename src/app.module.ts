@@ -5,6 +5,7 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import { MongooseModule } from '@nestjs/mongoose';
 import { ReplaysModule } from './replays/replays.module';
 import { ShowdownServer, ShowdownServerSchema } from './replays/schemas/showdown-servers.schema';
+import { LadderModule } from './ladder/ladder.module';
 import databaseConfig from './config/database.config';
 import serverConfig from './config/server.config';
 
@@ -21,6 +22,7 @@ import serverConfig from './config/server.config';
 		}),
 	}),
 	ReplaysModule,
+	LadderModule,
 ],
   controllers: [AppController],
   providers: [AppService],
