@@ -29,11 +29,13 @@ export class LadderService {
 		let user = await this.getUser(players[0]);
 		if (!user) user = await this.createUser({
 			showdown_username: players[0],
+			elo: 1200,
 		});
 		
-		let opponent = await this.getUser(players[0]);
+		let opponent = await this.getUser(players[1]);
 		if (!opponent) user = await this.createUser({
-			showdown_username: players[0],
+			showdown_username: players[1],
+			elo: 1200,
 		});
 
 		// Update Elo
