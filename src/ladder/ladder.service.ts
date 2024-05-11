@@ -14,7 +14,10 @@ export class LadderService {
 
 	async createUser(newUser: NewUserDto) {
 		if (!newUser.elo) newUser.elo = 1200;
-		return this.userModel.create(newUser);
+		return this.userModel.create({
+			showdown_username: newUser.showdown_username,
+			elo: newUser.elo,
+		});
 	}
 
 	async getUser(username: string) {
