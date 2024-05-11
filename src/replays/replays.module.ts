@@ -5,6 +5,7 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { Replay, ReplaySchema } from './schemas/replay.schema';
 import { ReplayChannel, ReplayChannelSchema } from './schemas/replay-channel.schema';
 import { ShowdownServer, ShowdownServerSchema } from './schemas/showdown-servers.schema';
+import { LadderModule } from 'src/ladder/ladder.module';
 
 @Module({
   imports: [
@@ -13,6 +14,7 @@ import { ShowdownServer, ShowdownServerSchema } from './schemas/showdown-servers
 		{ name: ReplayChannel.name, schema: ReplayChannelSchema },
 		{ name: ShowdownServer.name, schema: ShowdownServerSchema },
 	]),
+	LadderModule,
   ],
   controllers: [ReplaysController],
   providers: [ReplaysService],

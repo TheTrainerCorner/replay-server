@@ -3,11 +3,13 @@ import { ReplaysService } from './replays.service';
 import { NewReplayDto } from './dto/new-replay.dto';
 import axios from 'axios';
 import path from 'path';
+import { LadderService } from 'src/ladder/ladder.service';
 
 @Controller()
 export class ReplaysController {
 	constructor(
 		private replaysService: ReplaysService,
+		private ladderSerivce: LadderService,
 	) {}
 
 	@Post("/:path_name")
@@ -19,7 +21,7 @@ export class ReplaysController {
 		);
 
 		await this.replaysService.createReplay(body);
-
+		await this.ladderSerivce.handleElo(body.players, body.log);
 		if (path_name === "ttc") {
 			await axios.post("https://main.thetrainercorner.net/api/discord/replay", {
 				replay_id: body.id,
