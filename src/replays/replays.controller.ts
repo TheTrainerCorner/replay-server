@@ -5,7 +5,7 @@ import axios from 'axios';
 import path from 'path';
 import { LadderService } from 'src/ladder/ladder.service';
 
-@Controller()
+@Controller("replays")
 export class ReplaysController {
 	constructor(
 		private replaysService: ReplaysService,
