@@ -25,7 +25,7 @@ export class LadderService {
 	 * Resource: https://en.m.wikipedia.org/wiki/Elo_rating_system#Mathematical_details
 	 */
 	async handleElo(players: string[], logs: string) {
-
+		console.log(players, logs);
 		let user = await this.getUser(players[0]);
 		if (!user) user = await this.createUser({
 			showdown_username: players[0],
