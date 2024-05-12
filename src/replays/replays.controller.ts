@@ -22,7 +22,7 @@ export class ReplaysController {
 		);
 
 		await this.replaysService.createReplay(body);
-		await this.ladderSerivce.handleElo(body.players, body.log);
+		// await this.ladderSerivce.handleElo(body.players, body.log);
 		if (path_name === "ttc") {
 			await axios.post("https://main.thetrainercorner.net/api/discord/replay", {
 				replay_id: body.id,
