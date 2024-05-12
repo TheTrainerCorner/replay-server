@@ -1,4 +1,4 @@
-import { Body, Controller, Get, NotFoundException, Param, Post, Render, UnauthorizedException } from '@nestjs/common';
+import { Body, Controller, Get, HttpCode, NotFoundException, Param, Post, Render, UnauthorizedException } from '@nestjs/common';
 import { ReplaysService } from './replays.service';
 import { NewReplayDto } from './dto/new-replay.dto';
 import axios from 'axios';
@@ -13,6 +13,7 @@ export class ReplaysController {
 	) {}
 
 	@Post("/:path_name")
+	@HttpCode(200)
 	async createNewReplay(@Param("path_name") path_name: string, @Body() body: NewReplayDto) {
 		const server = await this.replaysService.getShowdownServerFromPathName(path_name);
 		if (!server) return new UnauthorizedException(
