@@ -10,7 +10,7 @@ block content
 			h1 Welcome to The Trainer's Corner (TTC)'s Replay Server!
 		.card-body
 			p If you are looking for TTC's replays, then click on the button below
-			a(href=`/ttc`)
+			a(href=`/replays/ttc`)
 				button.btn.btn-primary.rounded TTC's Replay
 		.card-footer.bg-dark.text-light
 	br
@@ -23,6 +23,6 @@ block content
 			.btn-group(role="group", aria-lable="Server Buttons")
 				each server in servers
 					if server.path_name !== 'ttc'
-						a(href=`/${server.path_name}`)
+						a(href=`/replays/${server.path_name}`)
 							button(role="button").btn.btn-primary #{server.server_name}
 		.card-footer.bg-dark.text-light
