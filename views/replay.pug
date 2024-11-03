@@ -32,6 +32,23 @@ block content
 			a(href=`http://pokemonshowdown.com/users/${replay.players[1]}`, target="_blank").subtle #{replay.players[1]}
 		script(type="text/plain").battle-log-data
 			| #{replay.log.replace(/\//g, "\\/")}
-	script(src=`${server.server_url}/js/replay-embed.js`)
-	script(src=`https://play.pokemonshowdown.com/js/replay-embed.js?version${Math.floor(Date.now()/1000/60/60/24)}`)
+	script(defer, src=`${server.server_url}/js/replay-embed.js`)
+	script(defer, nomodule, src=`${server.server_url}/js/lib/ps-polyfill.js`)
+	script(defer, src=`${server.server_url}/js/lib/preact.min.js`)
+	script(defer, src=`${server.server_url}/config/config.js`)
+	script(defer, src=`${server.server_url}/js/lib/jquery-1.11.0.min.js`)
+	script(defer, src=`${server.server_url}/js/lib/html-sanitizer-minified.js`)
+	script(defer, src=`${server.server_url}/js/battle-sound.js`)
+	script(defer, src=`${server.server_url}/js/battledata.js`)
+	script(defer, src=`${server.server_url}/js/pokedex-mini.js`)
+	script(defer, src=`${server.server_url}/js/pokedex-mini-bw.js`)
+	script(defer, src=`${server.server_url}/graphics.js`)
+	script(defer, src=`${server.server_url}/pokedex.js`)
+	script(defer, src=`${server.server_url}/moves.js`)
+	script(defer, src=`${server.server_url}/abilities.js`)
+	script(defer, src=`${server.server_url}/items.js`)
+	script(defer, src=`${server.server_url}/teambuilder-tables.js`)
+	script(defer, src=`${server.server_url}/battle-tooltips.js`)
+	script(defer, src=`${server.server_url}/battle.js`)
+	script(defer, src=`https://play.pokemonshowdown.com/js/replay-embed.js?version${Math.floor(Date.now()/1000/60/60/24)}`)
 	div
